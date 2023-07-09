@@ -1,0 +1,48 @@
+<%- include ('./layout/header') -%>
+
+<!-- start main -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-success">
+                    <h1>Edit User (<%= users.name %>)</h1>  
+                </div>
+                <div class="card-body p-4">
+                    <form action="/update/<%= users._id %>" method="post" id="add-form" enctype="multipart/form-data">
+                      <div class="mb-3">
+                        <label for="name">Name</label>
+                        <input type="text" value="<%= users.name %>" name="name" class="form-control form-control-lg" placeholder="Enter name" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="email">E-mail</label>
+                        <input type="email" value="<%= users.email %>" name="email" class="form-control form-control-lg" placeholder="Enter email" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="phone">Phone</label>
+                        <input type="tel" value="<%= users.phone %>" name="phone" class="form-control form-control-lg" placeholder="Enter phone" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="image" class="form-label">Select image</label>
+                        <input type="file" name="image" class="form-control form-control-lg" placeholder="Enter image ">
+                        <img src="/<%= users.image %>" alt="" width="100" class="img-thumbnail mt-1">
+                      </div>
+                      <input type="hidden" name="old_image" value="<%= users.image %>" >
+
+                      <div class="mb-3 d-grid">
+                        <input type="submit" name="submit" value="Update User" class="btn btn-success btn-lg">
+                      </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- End main -->
+
+
+<%- include ('./layout/footer') -%>
